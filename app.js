@@ -12,8 +12,16 @@ const app = require("express")();
 module.exports = app;
 
 //------------------------------------------------------------------------------
+// ● Template-Engine
+//------------------------------------------------------------------------------
+app.set("view engine", "ejs");
+
+//------------------------------------------------------------------------------
 // ● Settings
 //------------------------------------------------------------------------------
+app.locals.siteName = "Express Sample";
+app.locals.authorName = "Ambratolm";
+app.locals.feedbacks = require("./data");
 app.set("host", process.env.HOST);
 app.set("port", process.env.PORT);
 

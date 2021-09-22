@@ -1,0 +1,52 @@
+<!-- Hero -->
+<section class="hero is-light">
+  <!-- Hero-Body -->
+  <div class="hero-body">
+    <h1 class="title">Welcome</h1>
+    <h2 class="subtitle">Please leave a feedback 😊</h2>
+    <div class="field">
+      <div class="control">
+        <input class="input" type="text" placeholder="👤 Name" />
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <textarea
+          class="textarea"
+          placeholder="💬 Message"
+          rows="1"
+        ></textarea>
+      </div>
+    </div>
+    <div class="field is-grouped is-grouped-right">
+      <div class="control">
+        <button class="button is-dark">✔️ Submit</button>
+      </div>
+      <div class="control">
+        <button class="button is-light">❌ Cancel</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feedbacks -->
+<section class="section">
+  <% for (const feedback of feedbacks) { %>
+  <article class="media box">
+    <figure class="media-left">
+      <p class="image is-128x128">
+        <img src="./assets/image.jpg" />
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>👤 <%= feedback.author %></strong>
+          <br />
+          <%- feedback.message.replace(/\n/g, "<br />") %>
+        </p>
+      </div>
+    </div>
+  </article>
+  <% } %>
+</section>

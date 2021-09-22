@@ -19,4 +19,3 @@ liveReloadServer.server.once("connection", () => {
     console.log("Reloaded".bgInfo, "Browser page refreshed.");
   }, 100);
 });
-

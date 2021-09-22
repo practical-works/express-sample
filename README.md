@@ -71,7 +71,9 @@ npm start
 
 ### 🌑 Backend
 
-- ⚛️ Core: [**NodeJS**](https://github.com/nodejs/node) / [**ExpressJS**](https://github.com/expressjs/express)
+- ⚛️ Core:
+  - Main: [**NodeJS**](https://github.com/nodejs/node) / [**ExpressJS**](https://github.com/expressjs/express)
+  - Template Engine: [**EJS**](https://github.com/mde/ejs)
 - 🔧 Utils:
   - Environment Configuration: [**DotEnv**](https://github.com/motdotla/dotenv)
   - Console Logging: [**Morgan**](https://github.com/expressjs/morgan)

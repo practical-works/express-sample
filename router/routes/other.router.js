@@ -4,7 +4,6 @@
 //     Other pages routes main entry point.
 //==============================================================================
 const otherRouter = require("express").Router();
-const path = require("path");
 
 //------------------------------------------------------------------------------
 // ► Exports
@@ -15,5 +14,5 @@ module.exports = otherRouter;
 // ● GET-Other-Pages
 //------------------------------------------------------------------------------
 otherRouter.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../../static/pages", "404.html"));
+  res.render("./", { title: "Not Found", page: "404" });
 });

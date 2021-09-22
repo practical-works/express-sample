@@ -4,7 +4,6 @@
 //     About page routes main entry point.
 //==============================================================================
 const aboutRouter = require("express").Router();
-const path = require("path");
 
 //------------------------------------------------------------------------------
 // ► Exports
@@ -15,5 +14,5 @@ module.exports = aboutRouter;
 // ● GET-About-Page
 //------------------------------------------------------------------------------
 aboutRouter.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../../static/pages", "about.html"));
+  res.render("./", { title: "About", page: "about" });
 });

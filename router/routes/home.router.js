@@ -3,8 +3,7 @@
 //------------------------------------------------------------------------------
 //     Home page main entry point.
 //==============================================================================
-const express = require("express");
-const homeRouter = express.Router();
+const homeRouter = require("express").Router();
 
 //------------------------------------------------------------------------------
 // ► Exports
@@ -14,4 +13,6 @@ module.exports = homeRouter;
 //------------------------------------------------------------------------------
 // ● Serve-Home-Page
 //------------------------------------------------------------------------------
-homeRouter.use(express.static("./static/"));
+homeRouter.get("/", (req, res) => {
+  res.render("./", { title: "Home", page: "home" });
+});
