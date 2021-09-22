@@ -1,0 +1,46 @@
+{
+  "name": "express-sample",
+  "version": "1.0.0",
+  "description": "ExpressJS sample project featuring useful libraries.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./",
+    "dev": "nodemon ./ --ext *",
+    "lint": "eslint ./ --fix",
+    "prettier": "prettier ./ --write"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.6.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "livereload": "^0.9.3",
+    "prettier": "^2.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/practical-works/express-sample.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "express",
+    "expressjs"
+  ],
+  "author": "Ambratolm <ambratolm@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/practical-works/express-sample/issues"
+  },
+  "homepage": "https://github.com/practical-works/express-sample#readme"
+}

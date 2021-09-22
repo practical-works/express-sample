@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Express Sample - Home</title>
+    <link rel="stylesheet" type="text/css" href="./libraries/bulma.min.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar is-dark">
+      <div class="navbar-brand">
+        <h1 class="navbar-item is-size-4">🚇 Express Sample</h1>
+        <a class="navbar-item is-active">🏠 Home</a>
+        <a href="./about" class="navbar-item">About</a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero is-light">
+      <!-- Hero-Body -->
+      <div class="hero-body">
+        <h1 class="title">Welcome</h1>
+        <h2 class="subtitle">Please leave a feedback 😊</h2>
+        <div class="field">
+          <div class="control">
+            <input class="input" type="text" placeholder="👤 Name" />
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <textarea
+              class="textarea"
+              placeholder="💬 Message"
+              rows="1"
+            ></textarea>
+          </div>
+        </div>
+        <div class="field is-grouped is-grouped-right">
+          <div class="control">
+            <button class="button is-dark">✔️ Submit</button>
+          </div>
+          <div class="control">
+            <button class="button is-light">❌ Cancel</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedbacks -->
+    <section class="section">
+      <article class="media box">
+        <figure class="media-left">
+          <p class="image is-128x128">
+            <img src="./assets/image.jpg" />
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>👤 Ambratolm</strong>
+              <br />
+              Hello, this is cool.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </body>
+</html>
