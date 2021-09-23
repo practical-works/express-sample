@@ -19,9 +19,32 @@ router.use(express.static("./static/"));
 //------------------------------------------------------------------------------
 // ● Routes
 //------------------------------------------------------------------------------
-const homeRoutes = require("./routes/home.router");
-const aboutRoutes = require("./routes/about.router");
-const otherRoutes = require("./routes/other.router");
-router.use("/", homeRoutes);
-router.use("/about", aboutRoutes);
-router.use("/*", otherRoutes);
+const homeRouter = require("./routes/home.router");
+const aboutRouter = require("./routes/about.router");
+const userRouter = require("./routes/user.router");
+const otherRouter = require("./routes/other.router");
+router.use("/", homeRouter);
+router.use("/about", aboutRouter);
+router.use("/u", userRouter);
+router.use("/*", otherRouter);
+
+//------------------------------------------------------------------------------
+// ● Error-Handler
+//------------------------------------------------------------------------------
+router.use((err, req, res, next) => {
+  const { name, message, stack } = err;
+  console.log(name.bgDanger, message.danger);
+  if (global.env.isDev) {
+    console.log(stack);
+  }
+  res.status(500).render("./pages/500", {
+    title: "Error",
+    url: req.baseUrl,
+    error: global.env.isDev
+      ? { name, message, stack }
+      : {
+          name: "Error",
+          message: "An error has occurred. Please try later.",
+        },
+  });
+});

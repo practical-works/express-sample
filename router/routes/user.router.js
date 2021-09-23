@@ -1,22 +1,28 @@
 //==============================================================================
-// ■ Other-Router (other.router.js)
+// ■ User-Routes (user-router.js)
 //------------------------------------------------------------------------------
-//     Other pages routes main entry point.
+//     User page routes entry point.
 //==============================================================================
-const otherRouter = require("express").Router();
+const userRouter = require("express").Router();
 
 //------------------------------------------------------------------------------
 // ► Exports
 //------------------------------------------------------------------------------
-module.exports = otherRouter;
+module.exports = userRouter;
 
 //------------------------------------------------------------------------------
-// ● GET-Other-Pages
+// ● GET-Home-Page
 //------------------------------------------------------------------------------
-otherRouter.get("/", (req, res, next) => {
+userRouter.get("/:userName", async (req, res, next) => {
   try {
-    const url = req.baseUrl;
-    res.status(404).render("./", { title: "Not Found", page: "404", url });
+    const { userName } = req.params;
+    const { get } = res.locals.dataApi;
+    const feedbacks = await get("feedbacks");
+    const userMessages = feedbacks
+      .filter((f) => f.author.toLowerCase() === userName.toLowerCase())
+      .map((f) => f.message);
+    const user = { name: userName, messages: userMessages };
+    res.render("./", { title: "User", page: "user", user });
   } catch (e) {
     next(e);
   }

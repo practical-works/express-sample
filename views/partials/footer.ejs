@@ -1,7 +1,10 @@
-<footer class="footer has-background-light">
+<footer class="footer">
   <div class="content has-text-centered">
     <p>
-      <strong><%= siteName %></strong> by <a href="https://ambratolm.ml"><%= authorName %></a>
+      <strong><%= website.name %></strong> by
+      <a href="<% website.url %>">
+        <%= website.author %>
+      </a>
     </p>
   </div>
 </footer>

@@ -12,15 +12,39 @@ const subApp = express();
 module.exports = subApp;
 
 //------------------------------------------------------------------------------
+// ● Hot-Reloader
+//------------------------------------------------------------------------------
+if (global.env.isDev) {
+  const hotReloader = require("./hot-reloader");
+  subApp.use(hotReloader);
+}
+
+//------------------------------------------------------------------------------
+// ● Body-Parser
+//------------------------------------------------------------------------------
+const bodyParser = require("body-parser");
+subApp.use(bodyParser.json());
+subApp.use(bodyParser.urlencoded({ extended: true }));
+
+//------------------------------------------------------------------------------
+// ● Cookie-Session
+//------------------------------------------------------------------------------
+var cookieSession = require("cookie-session");
+subApp.use(
+  cookieSession({
+    name: "express-sample-session",
+    keys: ["a4d1-f4hh-110x-1c44-5sd1x", "c47f-x4s1-7xx8-s5e1-a5s1"],
+  })
+);
+
+//------------------------------------------------------------------------------
 // ● Console-Logger
 //------------------------------------------------------------------------------
 const morgan = require("morgan");
 subApp.use(morgan("dev"));
 
 //------------------------------------------------------------------------------
-// ● Hot-Reloader
+// ● Data-Provider
 //------------------------------------------------------------------------------
-if (global.development) {
-  const hotReloader = require("./hot-reloader");
-  subApp.use(hotReloader);
-}
+const dataProvider = require("./data-provider");
+subApp.use(dataProvider);

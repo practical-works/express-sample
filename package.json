@@ -4,16 +4,18 @@
   "description": "ExpressJS sample project featuring useful libraries.",
   "main": "server.js",
   "scripts": {
-    "start": "node ./",
-    "dev": "nodemon ./ --ext *",
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www --ext *",
     "lint": "eslint ./ --fix",
     "prett": "prettier ./ --write"
   },
   "dependencies": {
     "colors": "^1.4.0",
+    "cookie-session": "^1.4.0",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-validator": "^6.12.1",
     "morgan": "^1.10.0"
   },
   "devDependencies": {

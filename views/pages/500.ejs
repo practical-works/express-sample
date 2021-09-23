@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= website.name %> - <%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/libraries/bulma.min.css" />
+  </head>
+  <body class="has-background-dark">
+  <section class="section is-large">
+  <div class="message is-danger">
+    <h3 class="message-header">⚠️ Internal Server Error</h3>
+    <div class="message-body">
+      <p class="subtitle">
+        <strong><%= error.name %></strong> : <%= error.message %>
+      </p>
+      <a href="<%= url %>" class="button is-danger">🔃 Retry</a>
+    </div>
+  </div>
+  <% if (error.stack) { -%>
+    <div class="message is-danger">
+      <div class="message-body">
+        <p class="subtitle">
+          <strong><%= error.stack %></strong>
+        </p>
+      </div>
+    </div>
+  <% } -%>
+</section>
+  </body>
+</html>

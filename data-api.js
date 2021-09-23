@@ -1,40 +1,41 @@
 //==============================================================================
-// ■ App (app.js)
+// ■ Data-API (data-api.js)
 //------------------------------------------------------------------------------
-//     Application main entry point.
+//     Data access and mangement.
 //==============================================================================
-require("./utils");
-const app = require("express")();
+const fs = require("fs");
+const { promisify } = require("util");
+const readFile = promisify(fs.readFile);
+const writeFile = promisify(fs.writeFile);
+const fileName = "./data.json";
 
 //------------------------------------------------------------------------------
 // ► Exports
 //------------------------------------------------------------------------------
-module.exports = app;
+module.exports = { get, add };
 
 //------------------------------------------------------------------------------
-// ● Template-Engine
+// ● Load-Data
 //------------------------------------------------------------------------------
-app.set("view engine", "ejs");
+async function load() {
+  const json = await readFile(fileName, "UTF-8");
+  return JSON.parse(json);
+}
 
 //------------------------------------------------------------------------------
-// ● Settings
+// ● Get-Collection
 //------------------------------------------------------------------------------
-app.locals.website = {
-  name: "Express Sample",
-  author: "Ambratolm",
-  url: "https://ambratolm.ml",
-};
-app.set("host", process.env.HOST);
-app.set("port", process.env.PORT);
+async function get(collectionName) {
+  const data = await load();
+  const collection = data[collectionName];
+  return collection;
+}
 
 //------------------------------------------------------------------------------
-// ● Middlewares
+// ● Add-Item
 //------------------------------------------------------------------------------
-const middlewares = require("./middlewares");
-app.use(middlewares);
-
-//------------------------------------------------------------------------------
-// ● Router
-//------------------------------------------------------------------------------
-const router = require("./router");
-app.use(router);
+async function add(collectionName, item) {
+  const data = await load();
+  data[collectionName].push(item);
+  return await writeFile(fileName, JSON.stringify(data, null, 2));
+}

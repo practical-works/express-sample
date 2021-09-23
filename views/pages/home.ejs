@@ -1,17 +1,30 @@
 <!-- Hero -->
 <section class="hero is-light">
   <!-- Hero-Body -->
-  <div class="hero-body">
+  <form class="hero-body" method="post" action="/">
     <h1 class="title">Welcome</h1>
     <h2 class="subtitle">Please leave a feedback 😊</h2>
+    <% if (success) { -%>
+      <div class="notification is-success">
+        Thank you for your feedback!
+      </div>
+    <% } -%>
+    <% if (errors) { -%>
+      <div class="notification is-danger">
+        <% for (const error of errors) { -%>
+          <p>• <%= error.msg %></p>
+        <% } -%>
+      </div>
+    <% } -%>
     <div class="field">
       <div class="control">
-        <input class="input" type="text" placeholder="👤 Name" />
+        <input name="author" class="input" type="text" placeholder="👤 Name" />
       </div>
     </div>
     <div class="field">
       <div class="control">
         <textarea
+          name="message"
           class="textarea"
           placeholder="💬 Message"
           rows="1"
@@ -20,13 +33,10 @@
     </div>
     <div class="field is-grouped is-grouped-right">
       <div class="control">
-        <button class="button is-dark">✔️ Submit</button>
-      </div>
-      <div class="control">
-        <button class="button is-light">❌ Cancel</button>
+        <button type="submit" class="button is-dark">✔️ Submit</button>
       </div>
     </div>
-  </div>
+  </form>
 </section>
 
 <!-- Feedbacks -->
@@ -34,17 +44,20 @@
   <% for (const feedback of feedbacks) { %>
   <article class="media box">
     <figure class="media-left">
-      <p class="image is-128x128">
-        <img src="./assets/image.jpg" />
+      <p class="image is-64x64">
+        <img src="/assets/image.jpg" />
       </p>
     </figure>
     <div class="media-content">
       <div class="content">
-        <p>
-          <strong>👤 <%= feedback.author %></strong>
-          <br />
-          <%- feedback.message.replace(/\n/g, "<br />") %>
-        </p>
+        <h1 class="title">
+            <a href="/u/<%= feedback.author %>">
+              👤 <%= feedback.author %>
+            </a>
+          </h1>
+          <p class="subtitle">
+            <%- feedback.message.replace(/\n/g, "<br />") %>
+          </p>
       </div>
     </div>
   </article>

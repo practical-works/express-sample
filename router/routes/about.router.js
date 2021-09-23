@@ -1,7 +1,7 @@
 //==============================================================================
-// ■ About-Routes (about-routes.js)
+// ■ About-Router (about.router.js)
 //------------------------------------------------------------------------------
-//     About page routes main entry point.
+//     About page routes entry point.
 //==============================================================================
 const aboutRouter = require("express").Router();
 
@@ -13,6 +13,10 @@ module.exports = aboutRouter;
 //------------------------------------------------------------------------------
 // ● GET-About-Page
 //------------------------------------------------------------------------------
-aboutRouter.get("/", (req, res) => {
-  res.render("./", { title: "About", page: "about" });
+aboutRouter.get("/", (req, res, next) => {
+  try {
+    res.render("./", { title: "About", page: "about" });
+  } catch (e) {
+    next(e);
+  }
 });
