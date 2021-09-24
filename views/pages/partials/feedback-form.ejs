@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-content">
+    <form method="post" action="/">
+      <h1 class="title">Welcome</h1>
+      <h2 class="subtitle">Please leave a feedback 😊</h2>
+      <% if (success) { -%>
+        <div class="notification is-success">
+          Thank you for your feedback!
+        </div>
+      <% } -%>
+      <% if (errors) { -%>
+        <div class="notification is-danger">
+          <% for (const error of errors) { -%>
+            <p>• <%= error.msg %></p>
+          <% } -%>
+        </div>
+      <% } -%>
+      <div class="field">
+        <div class="control">
+          <input name="author" class="input" type="text" placeholder="👤 Name" />
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <textarea
+            name="message"
+            class="textarea"
+            placeholder="💬 Message"
+            rows="1"
+          ></textarea>
+        </div>
+      </div>
+      <div class="field is-grouped is-grouped-right">
+        <div class="control">
+          <button type="submit" class="button is-dark">✔️ Submit</button>
+        </div>
+        <div class="control">
+          <button type="reset" class="button">❌ Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

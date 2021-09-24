@@ -1,0 +1,13 @@
+<% for (const feedback of feedbacks) { %>
+<article class="card">
+  <div class="card-header">
+    <a href="/u/<%= feedback.author %>" class="card-header-title has-text-link">
+      👤 <%= feedback.author %>
+    </a>
+  </div>
+  <div class="card-content">
+    <%- feedback.message.replace(/\n/g, "<br />") %>
+  </div>
+</article>
+<br />
+<% } %>

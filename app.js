@@ -21,6 +21,7 @@ app.set("view engine", "ejs");
 //------------------------------------------------------------------------------
 app.locals.website = {
   name: "Express Sample",
+  desc: "ExpressJS simple example project featuring useful libraries.",
   author: "Ambratolm",
   url: "https://ambratolm.ml",
 };

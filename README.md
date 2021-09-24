@@ -75,6 +75,8 @@ npm start
   - Main: [**NodeJS**](https://github.com/nodejs/node) / [**ExpressJS**](https://github.com/expressjs/express)
   - Template Engine: [**EJS**](https://github.com/mde/ejs)
 - 🔧 Utils:
+  - Validation: [**Express-Validator**](https://github.com/express-validator/express-validator)
+  - Session Storage: [**Cookie-Session**](https://github.com/expressjs/cookie-session)
   - Environment Configuration: [**DotEnv**](https://github.com/motdotla/dotenv)
   - Console Logging: [**Morgan**](https://github.com/expressjs/morgan)
   - Console Coloration: [**Colors.JS**](https://github.com/Marak/colors.js)
