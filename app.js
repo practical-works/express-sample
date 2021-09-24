@@ -25,7 +25,7 @@ app.locals.website = {
   author: "Ambratolm",
   url: "https://ambratolm.ml",
 };
-app.set("host", process.env.HOST);
+app.set("host", global.env.isDev ? process.env.HOST : "");
 app.set("port", process.env.PORT);
 
 //------------------------------------------------------------------------------
